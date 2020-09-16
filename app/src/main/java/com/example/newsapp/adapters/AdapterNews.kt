@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.R
 import com.example.newsapp.models.Article
@@ -36,6 +37,8 @@ class AdapterNews(var mContext: Context, var mList: ArrayList<Article>) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(article: Article) {
             itemView.tv_title.text = article.title
+            itemView.tv_description.text = article.description
+
 
         }
 
