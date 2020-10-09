@@ -1,34 +1,45 @@
-<RelativeLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
 
-    <ImageView
-        android:id="@+id/img_view_cover"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+    <data>
 
-    <TextView
-        android:layout_width="wrap_content"
+        <variable
+            name="newsVM"
+            type="com.example.newsapp.ui.home.NewsViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/news_item"
+        android:onClick="@{newsVM::onNewsItemClicked}"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_title"
-        android:layout_toRightOf="@+id/img_view_cover"
-        android:text="Title"
-        android:textSize="14sp"
-        android:textColor="#000"/>
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tv_description"
-        android:text="Description"
-        android:layout_width="wrap_content"
-        android:layout_below="@id/tv_title"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/img_view_cover"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"/>
+        <ImageView
+            android:id="@+id/img_view_cover"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="10dp" />
 
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_view_cover"
+            android:text="@={newsVM.title}"
+            android:textColor="#000"
+            android:textSize="14sp" />
 
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_alignBottom="@id/img_view_cover"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/img_view_cover"
+            android:text="@={newsVM.description}"
+            android:textSize="12sp" />
 
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</layout>
